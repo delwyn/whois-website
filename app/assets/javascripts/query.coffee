@@ -1,3 +1,3 @@
-$ ->
-  $('#queryForm').submit ->
-    $('button,input', @).attr('disabled', true)
+#$ ->
+#  $('#queryForm').submit ->
+#    $('button', @).attr('disabled', true)

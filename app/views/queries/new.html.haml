@@ -1,0 +1,7 @@
+= form_tag queries_path, id: 'queryForm', class: 'query-form clearfix' do
+  = button_tag 'Submit', type: :submit, class: 'search_action'
+  = text_field_tag :query, '', autocorrect: 'off',  autocomplete: 'off', spellcheck: false, placeholder: 'Enter Domain'
+
+- if @query
+  .whois-result
+    = raw @query.to_html

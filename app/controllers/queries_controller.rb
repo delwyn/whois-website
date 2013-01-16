@@ -3,7 +3,7 @@ class QueriesController < ApplicationController
   end
 
   def create
-    @query = Query.new(params[:query])
+    @query = QueryDecorator.decorate(Query.new(params[:query]))
     render 'new'
   end
 end

@@ -4,4 +4,15 @@
 
 - if @query
   .whois-result
-    = raw @query.to_html
+    %table
+      %tr
+        %td Query:
+        %td= @query.query
+      %tr
+        %td Host:
+        %td= @query.host
+      %tr
+        %td Available:
+        %td= @query.available?
+    %hr
+    %p= @query.content.html_safe

@@ -16,6 +16,12 @@ class Query
   end
 
   def to_html
-    content.gsub("\n", "<br>")
+    begin
+      content.gsub("\n", "<br>")
+    rescue Whois::WebInterfaceError => e
+      e.message
+    rescue
+      'Oops - Something went wrong'
+    end
   end
 end

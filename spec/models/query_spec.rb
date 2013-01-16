@@ -39,5 +39,15 @@ describe Query do
       query.stub(:result) { result }
       query.to_html.should eq 'some<br>result'
     end
+
+    it 'rescues from Whois::WebInterfaceError' do
+      query.stub(:content).and_raise(Whois::WebInterfaceError, 'no whois server')
+      query.to_html.should match /no whois server/
+    end
+
+    it "rescues from other errors" do
+      query.stub(:content).and_raise(StandardError, 'error')
+      query.to_html.should match /something went wrong/i
+    end
   end
 end
